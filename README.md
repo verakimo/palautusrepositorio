@@ -1,2 +1,2 @@
 # palautusrepositorio
-Helsingin yliopiston Ohjelmistotuotanto-kurssin tehtävien palautukset (2026)
+[https://github.com/verakimo/ohtuvarasto26.git](https://github.com/verakimo/ohtuvarasto26.git)
