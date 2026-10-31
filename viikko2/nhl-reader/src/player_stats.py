@@ -11,3 +11,15 @@ class PlayerStats:
             key=lambda player: player.points,
             reverse=True,
         )
+
+    def top_goal_scorers(self, how_many):
+        """Return the top players by goals."""
+        return sorted(
+            self.players,
+            key=lambda player: player.goals,
+            reverse=True,
+        )[:how_many]
+
+    def top_scorers_by_team(self, team):
+        players = [player for player in self.players if team in player.team.split(", ")]
+        return sorted(players, key=lambda player: player.points, reverse=True)

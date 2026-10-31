@@ -25,14 +25,21 @@ def create_table(players, season, nationality):
     return table
 
 
+def get_filtered_players(stats, filter_type, filter_value):
+    if filter_type == "team":
+        return stats.top_scorers_by_team(filter_value)
+    return stats.top_scorers_by_nationality(filter_value)
+
+
 def main():
     season = input("Season: ")
-    nationality = input("Nationality: ")
+    filter_type = input("Filter by nationality or team: ")
+    filter_value = input(f"{filter_type}: ")
     url = f"https://studies.cs.helsinki.fi/nhlstats/{season}/players"
     reader = PlayerReader(url)
     stats = PlayerStats(reader)
-    players = stats.top_scorers_by_nationality(nationality)
-    Console().print(create_table(players, season, nationality))
+    players = get_filtered_players(stats, filter_type, filter_value)
+    Console().print(create_table(players, season, filter_value))
 
 if __name__ == "__main__":
     main()
